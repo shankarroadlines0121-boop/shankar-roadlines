@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Driver Registration | SHANKAR ROADLINES</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div 
+            <h1>SHANKAR ROADLINES</h1>
+        </div>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="driver-register.html" class="active">Driver Register</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- PAGE TITLE -->
+    <section class="page-banner">
+        <h2>Driver Registration</h2>
+        <p>Register your vehicle to work with SHANKAR ROADLINES</p>
+    </section>
+
+    <!-- DRIVER REGISTRATION FORM -->
+    <section class="form-section">
+        <form id="driverForm" class="driver-form">
+            
+            <input type="text" id="name" placeholder="Driver Name" required>
+
+            <input type="text" id="carNumber" placeholder="Vehicle Number" required>
+
+            <select id="category" required>
+                <option value="">Select Vehicle Category</option>
+                <option>Auto</option>
+                <option>Maruti Van</option>
+                <option>Eeco</option>
+                <option>Truck (Small)</option>
+                <option>Truck (Medium)</option>
+                <option>Truck (Heavy)</option>
+                <option>Bus</option>
+            </select>
+
+            <textarea id="address" placeholder="Full Address" required></textarea>
+
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </section>
+
+    <!-- ADMIN VIEW SECTION -->
+    <section class="admin-section">
+        <h3>Admin Access (Private)</h3>
+
+        <input type="password" id="adminPassword" placeholder="Enter Admin Password">
+        <button onclick="viewDrivers()" class="btn">View Registered Drivers</button>
+
+        <div id="driverList" class="driver-list"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 SHANKAR ROADLINES. All Rights Reserved.</p>
+    </footer>
+
+    <!-- FLOATING BUTTONS -->
+    <a href="https://wa.me/9863026441" class="whatsapp" target="_blank">WhatsApp</a>
+    <a href="https://www.facebook.com/share/1DAVZvx9yg/" class="facebook" target="_blank">Facebook</a>
+
+    <!-- JS -->
+    <script>
+        const ADMIN_PASSWORD = "bs shankar roadlines@2006";  // change this password
+
+        document.getElementById("driverForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const driver = {
+                name: document.getElementById("name").value,
+                carNumber: document.getElementById("carNumber").value,
+                category: document.getElementById("category").value,
+                address: document.getElementById("address").value
+            };
+
+            let drivers = JSON.parse(localStorage.getItem("drivers")) || [];
+            drivers.push(driver);
+            localStorage.setItem("drivers", JSON.stringify(drivers));
+
+            alert("Driver Registered Successfully!");
+            this.reset();
+        });
+
+        function viewDrivers() {
+            const pass = document.getElementById("adminPassword").value;
+            if (pass !== ADMIN_PASSWORD) {
+                alert("Access Denied!");
+                return;
+            }
+
+            const drivers = JSON.parse(localStorage.getItem("drivers")) || [];
+            const list = document.getElementById("driverList");
+            list.innerHTML = "";
+
+            if (drivers.length === 0) {
+                list.innerHTML = "<p>No drivers registered yet.</p>";
+                return;
+            }
+
+            drivers.forEach((d, i) => {
+                list.innerHTML += `
+                    <div class="driver-card">
+                        <p><strong>${i + 1}. ${d.name}</strong></p>
+                        <p>Vehicle: ${d.carNumber}</p>
+                        <p>Category: ${d.category}</p>
+                        <p>Address: ${d.address}</p>
+                    </div>
+                `;
+            });
+        }
+    </script>
+
+</body>
+</html>
