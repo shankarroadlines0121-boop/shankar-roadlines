@@ -1,0 +1,274 @@
+/* ===============================
+   SHANKAR ROADLINES – STYLE.CSS
+   Professional Corporate Design
+================================ */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GLOBAL */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* HEADER */
+.header {
+    background: #0b2c54;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    height: 50px;
+}
+
+.logo-area h1 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* NAVIGATION */
+.nav a {
+    color: #fff;
+    margin-left: 20px;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav a.active,
+.nav a:hover {
+    color: #ffd700;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(rgba(11,44,84,0.8), rgba(11,44,84,0.8)),
+                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #ffd700;
+    color: #0b2c54;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #e6c200;
+}
+
+/* PAGE BANNER */
+.page-banner {
+    background: #0b2c54;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.page-banner h2 {
+    font-size: 32px;
+}
+
+/* ABOUT SECTION */
+.about {
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* SERVICES */
+.services {
+    padding: 60px 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+/* SERVICE INFO */
+.service-info {
+    padding: 40px 30px;
+    background: #fff;
+}
+
+.service-info ul {
+    margin-top: 15px;
+    list-style: square inside;
+}
+
+/* FORMS */
+.form-section,
+.contact-section {
+    padding: 60px 30px;
+}
+
+.driver-form,
+.contact-form form {
+    max-width: 450px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.driver-form input,
+.driver-form select,
+.driver-form textarea,
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* ADMIN SECTION */
+.admin-section {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.driver-list {
+    margin-top: 20px;
+}
+
+.driver-card {
+    background: #fff;
+    padding: 15px;
+    margin: 10px auto;
+    max-width: 500px;
+    border-left: 5px solid #0b2c54;
+}
+
+/* CONTACT */
+.contact-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.contact-info {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+}
+
+/* MAP */
+.map-section iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+}
+
+/* FOOTER */
+.footer {
+    background: #0b2c54;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/* FLOATING BUTTONS */
+.whatsapp,
+.facebook {
+    position: fixed;
+    right: 20px;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 30px;
+    font-weight: bold;
+    z-index: 999;
+}
+
+.whatsapp {
+    bottom: 90px;
+    background: #25D366;
+}
+
+.facebook {
+    bottom: 30px;
+    background: #1877F2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .nav a {
+        margin: 10px;
+        display: inline-block;
+    }
+}
